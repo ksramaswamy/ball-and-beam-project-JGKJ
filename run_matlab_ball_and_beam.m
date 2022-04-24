@@ -6,7 +6,7 @@ clear all
 x0 = [-0.19; 0.00; 0; 0];
 t0 = 0;
 % Simulation time.
-T = 10;
+T = 90;
 % Sampling time of the controller
 dt = 0.01;
 % ode function to use.
@@ -14,7 +14,7 @@ ode_func = @ode45;
 % print log for each timestep if true.
 verbose = false;
 % plot animation if true.
-plot_animation = true;
+plot_animation = 0;
 % save animation to video if true.
 save_video = false;
 
@@ -26,9 +26,16 @@ xs = x0;
 ts = t0;
 us = [];
 theta_ds = [];
+v_balls = [];
+dthetas = [];
 [p_ball_ref, v_ball_ref] = get_ref_traj(t0);
 ref_ps = p_ball_ref;
 ref_vs = v_ball_ref;
+
+% Measurement Noise
+Eww = diag([.002 .002]).^2;
+MeasurementBias = [0;-2*pi/180];
+MeasurementBias = [0;0];
 
 % Initialize state & time.
 x = x0;
@@ -40,7 +47,8 @@ tstart = tic;
 while ~end_simulation
     %% Determine control input.
     tstart = tic; % DEBUG    
-    [u, theta_d] = controller_handle.stepController(t, x(1), x(3));
+    xmeas = [x(1);x(3)] + mvnrnd([0;0],Eww,1)' + MeasurementBias;
+    [u, theta_d,v_ball,dtheta] = controller_handle.stepController(t, xmeas(1), xmeas(2));
     u = min(u, u_saturation);
     u = max(u, -u_saturation);
     if verbose
@@ -49,6 +57,8 @@ while ~end_simulation
     tend = toc(tstart);    
     us = [us, u];          
     theta_ds = [theta_ds, theta_d];
+    v_balls = [v_balls v_ball];
+    dthetas = [dthetas dtheta];
     %% Run simulation for one time step.
     t_end_t = min(t + dt, t0+T);
     ode_opt = odeset('Events', @event_ball_out_of_range);
@@ -67,11 +77,13 @@ while ~end_simulation
     ref_vs = [ref_vs, v_ball_ref];    
 end % end of the main while loop
 %% Add control input for the final timestep.
-[u, theta_d] = controller_handle.stepController(t, x(1), x(3));
+[u, theta_d,v_ball,dtheta] = controller_handle.stepController(t, x(1), x(3));
 u = min(u, u_saturation);
 u = max(u, -u_saturation);
 us = [us, u];
 theta_ds = [theta_ds, theta_d];
+v_balls = [v_balls v_ball];
+dthetas = [dthetas dtheta];
 if verbose
     print_log(t, x, u);    
 end
@@ -90,14 +102,14 @@ plot_tracking_errors(ts, ps, ref_ps);
 plot_controls(ts, us);
 
 if plot_animation
-    animate_ball_and_beam(ts, ps, thetas, ref_ps, save_video);
+    animate_ball_and_beam(ts, ps, thetas, ref_ps, save_video,5);
 end
 
 function print_log(t, x, u)
-        fprintf('t: %.3f, \t x: ', t);
-        fprintf('%.2g, ', x);
-        fprintf('\t u: ');
-        fprintf('%.2g, ', u);
+        fprintf("t: %.3f, \t x: ", t);
+        fprintf("%.2g, ", x);
+        fprintf("\t u: ");
+        fprintf("%.2g, ", u);
         % Add custom log here.
-        fprintf('\n');
+        fprintf("\n");
 end

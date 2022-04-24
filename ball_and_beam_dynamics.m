@@ -21,4 +21,5 @@ dx(3) = dtheta;
 K = 10;
 tau = 0.1;
 dx(4) = (- dtheta + K * u) / tau; 
+
 end
