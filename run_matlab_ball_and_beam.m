@@ -33,7 +33,7 @@ ref_ps = p_ball_ref;
 ref_vs = v_ball_ref;
 
 % Measurement Noise
-Eww = diag([.002 .002]).^2;
+Eww = diag([0 0]).^2;
 MeasurementBias = [0;-2*pi/180];
 MeasurementBias = [0;0];
 
