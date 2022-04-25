@@ -8,15 +8,22 @@ classdef studentControllerInterface < matlab.System
         dt = .01;
         v_ball = 0;
         dtheta = 0;
-        controllerType = 2;
+        controllerType = 3;
         inputLast = 0;
+
+        % Notes on Kalman Filter: There's an extra state to account for
+        % potential offset on the servo angle measurements. This could
+        % happen if the machine isn't setup perfectly and 0 servo angle
+        % doesn't correspond to perfectly level. The extra state represents
+        % this offset and the Kalman filter estimates what the bias is to
+        % correct for it.
 
         % Kalman Filter Variables
         Pm = diag([.05 .02 .08 .04 .02]);
         xm = [-.19 0 0 0 0]';
         n = 5;
-        Evv = diag([.01 .01 .01 .01 .02]).^2;
-        Eww = diag([.005 .005]).^2;
+        Evv = diag([.01 .01 .01 .01 0.01]).^2;
+        Eww = diag([.005 .002]).^2;
 
     end
     methods(Access = protected)
@@ -121,6 +128,18 @@ classdef studentControllerInterface < matlab.System
                     V_servo = ...
 -(1.0*((0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(988.0*x1 + 1240.0*x2 + 84.6*x3 + 1.81*x4) - 40.0*x4*(1.29*x1 + 1.81*x2 + 0.534*x3 + 0.0122*x4) + x4*(61.1*x1 + 84.6*x2 + 24.5*x3 + 0.534*x4) + x2*(1410.0*x1 + 988.0*x2 + 61.1*x3 + 1.29*x4) + (((0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(988.0*x1 + 1240.0*x2 + 84.6*x3 + 1.81*x4) - 40.0*x4*(1.29*x1 + 1.81*x2 + 0.534*x3 + 0.0122*x4) + x4*(61.1*x1 + 84.6*x2 + 24.5*x3 + 0.534*x4) + x2*(1410.0*x1 + 988.0*x2 + 61.1*x3 + 1.29*x4))^2 + (77.5*x1 + 109.0*x2 + 32.0*x3 + 0.733*x4)^4)^(1/2)))/(77.5*x1 + 109.0*x2 + 32.0*x3 + 0.733*x4);
 
+                    % Saturate output to conserve energy
+                    saturate = 1;
+                    V_servo = max(min(V_servo,saturate),-saturate);
+                case 3
+                    %% LQR Controller
+                    K = [12.9099   18.1471    5.3350    0.1222];
+                    x1 = p_ball - (p_ball_ref);
+                    x2 = obj.v_ball - (v_ball_ref);
+                    x3 = theta;
+                    x4 = obj.dtheta;
+
+                    V_servo = -K*[x1;x2;x3;x4];
                     % Saturate output to conserve energy
                     saturate = 1;
                     V_servo = max(min(V_servo,saturate),-saturate);

@@ -45,4 +45,7 @@ Lg = jacobian(V,x)*g;
 
 %Sontag controller
 as = (-(Lf + sqrt(Lf^2 + Lg^4)))/Lg;
-vpa(as,3)
+vpa(as,3);
+
+%% LQR Control
+K = lqr(A,B,Q,3)
