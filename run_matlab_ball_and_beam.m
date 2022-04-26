@@ -26,16 +26,15 @@ xs = x0;
 ts = t0;
 us = [];
 theta_ds = [];
-v_balls = [];
-dthetas = [];
+xms = [];
 [p_ball_ref, v_ball_ref] = get_ref_traj(t0);
 ref_ps = p_ball_ref;
 ref_vs = v_ball_ref;
 
 % Measurement Noise
-Eww = diag([.002 .002]).^2;
+Eww = diag([.001 .001]).^2;
 MeasurementBias = [0;-.5*pi/180];
-% MeasurementBias = [0;0];
+MeasurementBias = [0;0];
 
 % Initialize state & time.
 x = x0;
@@ -48,7 +47,7 @@ while ~end_simulation
     %% Determine control input.
     tstart = tic; % DEBUG    
     xmeas = [x(1);x(3)] + mvnrnd([0;0],Eww,1)' + MeasurementBias;
-    [u, theta_d,v_ball,dtheta] = controller_handle.stepController(t, xmeas(1), xmeas(2));
+    [u, theta_d,xm] = controller_handle.stepController(t, xmeas(1), xmeas(2));
     u = min(u, u_saturation);
     u = max(u, -u_saturation);
     if verbose
@@ -57,8 +56,7 @@ while ~end_simulation
     tend = toc(tstart);    
     us = [us, u];          
     theta_ds = [theta_ds, theta_d];
-    v_balls = [v_balls v_ball];
-    dthetas = [dthetas dtheta];
+    xms = [xms xm];
     %% Run simulation for one time step.
     t_end_t = min(t + dt, t0+T);
     ode_opt = odeset('Events', @event_ball_out_of_range);
@@ -77,13 +75,13 @@ while ~end_simulation
     ref_vs = [ref_vs, v_ball_ref];    
 end % end of the main while loop
 %% Add control input for the final timestep.
-[u, theta_d,v_ball,dtheta] = controller_handle.stepController(t, x(1), x(3));
+[u, theta_d,xm] = controller_handle.stepController(t, x(1), x(3));
 u = min(u, u_saturation);
 u = max(u, -u_saturation);
 us = [us, u];
 theta_ds = [theta_ds, theta_d];
-v_balls = [v_balls v_ball];
-dthetas = [dthetas dtheta];
+xms = [xms xm];
+
 if verbose
     print_log(t, x, u);    
 end
@@ -95,7 +93,7 @@ score = get_controller_score(ts, ps, thetas, ref_ps, us);
 
 %% Plots
 % Plot states.
-plot_states(ts, xs, ref_ps, ref_vs, theta_ds);
+plot_states(ts, xs, ref_ps, ref_vs, theta_ds,xms);
 % Plot output errors.
 plot_tracking_errors(ts, ps, ref_ps);        
 % Plot control input history.

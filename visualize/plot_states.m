@@ -1,13 +1,10 @@
-function plot_states(ts, xs, ref_ps, ref_vs, theta_ds, v_balls, dthetas)
+function plot_states(ts, xs, ref_ps, ref_vs, theta_ds, xms)
 
 if nargin < 5
     theta_ds = []; 
 end
 if nargin < 6
-    v_balls = []; 
-end
-if nargin < 7
-    dthetas = []; 
+    xms = []; 
 end
 
 fig = figure();
@@ -22,6 +19,10 @@ subplot(4, 1, 1);
 plot(ts, 100 * xs(1, :), 'LineWidth', 1.5);
 hold on;
 plot(ts, 100 * ref_ps, '-.', 'LineWidth', 1.5);
+if ~isempty(xms)
+    plot(ts, 100 * xms(1,:),'-.k', 'LineWidth', 1.5);
+end
+
 ylabel('$z$ [cm]', 'Interpreter', 'latex');
 grid on;
 title('State History');
@@ -33,16 +34,16 @@ hold on;
 plot(ts, 100 * ref_vs, '-.', 'LineWidth', 1.5);
 grid on;
 ylabel('$\dot{z}$ [cm / s]', 'Interpreter', 'latex');
-if ~isempty(v_balls)
-    plot(ts, 100 * v_balls, '-.k', 'LineWidth', 1.5);
+if ~isempty(xms)
+    plot(ts, 100 * xms(2,:), '-.k', 'LineWidth', 1.5);
 end
 
 subplot(4, 1, 3);
 plot(ts, 180 * xs(3, :) / pi, 'LineWidth', 1.5);
 ylabel('$\theta$ [deg]', 'Interpreter', 'latex');
-if ~isempty(theta_ds)
+if ~isempty(xms)
     hold on;
-    plot(ts, 180 * theta_ds / pi, 'r:', 'LineWidth', 1.5);
+    plot(ts, 180 * xms(3,:) / pi, 'k-.', 'LineWidth', 1.5);
     grid on;
 end
 
@@ -52,7 +53,8 @@ ylabel('$\dot{\theta}$ [deg/s]', 'Interpreter', 'latex');
 xlabel('$t$ [sec]', 'Interpreter', 'latex');
 grid on;
 hold on;
-if ~isempty(dthetas)
-    plot(ts, 180 * dthetas / pi, '-.k', 'LineWidth', 1.5);
+if ~isempty(xms)
+    plot(ts, 180 * xms(4,:) / pi, '-.k', 'LineWidth', 1.5);
 end
+axis([0 90 -20 20])
 end
