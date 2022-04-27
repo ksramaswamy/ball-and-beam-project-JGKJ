@@ -9,7 +9,7 @@ classdef studentControllerInterface < matlab.System
         v_ball = 0;
         dtheta = 0;
         controllerType = 2;
-        estimatorType = 3;
+        estimatorType = 2;
         inputLast = 0;
 
         % Notes on Kalman Filter: There's an extra state to account for
@@ -32,7 +32,7 @@ classdef studentControllerInterface < matlab.System
         %             disp("You can use this function for initializaition.")
         %         end
 
-        function V_servo = stepImpl(obj, t, p_ball, theta)
+        function [V_servo,p_ball_meas,v_ball_meas,theta_meas,dtheta_meas] = stepImpl(obj, t, p_ball, theta)
             % This is the main function called every iteration. You have to implement
             % the controller in this function, but you are not allowed to
             % change the signature of this function.
@@ -193,6 +193,10 @@ classdef studentControllerInterface < matlab.System
             obj.thetaLast = theta;
             obj.p_ballLast = p_ball;
             obj.inputLast = V_servo;
+            p_ball_meas = obj.xm(1);
+            v_ball_meas = obj.xm(2);
+            theta_meas = obj.xm(3);
+            dtheta_meas = obj.xm(4);
         end
     end
 
