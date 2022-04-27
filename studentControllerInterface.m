@@ -121,9 +121,11 @@ classdef studentControllerInterface < matlab.System
     end 
 
     methods(Access = public)
-        function [V_servo, theta_d] = stepController(obj, t, p_ball, theta)        
+        function [V_servo, theta_d,v_ball,dtheta] = stepController(obj, t, p_ball, theta)        
             V_servo = stepImpl(obj, t, p_ball, theta);
             theta_d = obj.theta_d;
+            v_ball = 0;
+            dtheta = 0;
         end
     end
     
