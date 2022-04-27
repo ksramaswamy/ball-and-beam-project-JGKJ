@@ -33,7 +33,7 @@ ref_vs = v_ball_ref;
 
 % Measurement Noise
 Eww = diag([.001 .001]).^2;
-MeasurementBias = [0;-.5*pi/180];
+MeasurementBias = [0;-1*pi/180];
 MeasurementBias = [0;0];
 
 % Initialize state & time.

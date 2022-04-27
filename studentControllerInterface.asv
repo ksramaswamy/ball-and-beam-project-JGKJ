@@ -8,7 +8,7 @@ classdef studentControllerInterface < matlab.System
         dt = .01;
         v_ball = 0;
         dtheta = 0;
-        controllerType = 2;
+        controllerType = 3;
         estimatorType = 3;
         inputLast = 0;
 
@@ -23,7 +23,7 @@ classdef studentControllerInterface < matlab.System
         Pm = diag([.05 .02 .08 .04 .02]);
         xm = [-.19 0 0 0 0]';
         n = 5;
-        Evv = diag([0.01 .01 0.01 .01 0.01]).^2;
+        Evv = diag([0.01 0.01 0.01 0.01 0.01]).^2;
         Eww = diag([.002 .002]).^2;
 
     end
@@ -32,7 +32,7 @@ classdef studentControllerInterface < matlab.System
         %             disp("You can use this function for initializaition.")
         %         end
 
-        function V_servo = stepImpl(obj, t, p_ball, theta)
+        function [V_servo,p_ball_meas,v_ball_meas,theta_meas,dtheta_meas] = stepImpl(obj, t, p_ball, theta)
             % This is the main function called every iteration. You have to implement
             % the controller in this function, but you are not allowed to
             % change the signature of this function.
@@ -48,7 +48,7 @@ classdef studentControllerInterface < matlab.System
             obj.dt = t - obj.t_prev;
 
             % Extract reference trajectory at the current timestep.
-            [p_ball_ref, v_ball_ref, ~] = get_ref_traj(t);
+            [p_ball_ref, v_ball_ref, a_ball_ref] = get_ref_traj(t);
 
             switch(obj.estimatorType)
                 case 1
@@ -174,7 +174,7 @@ classdef studentControllerInterface < matlab.System
                     V_servo = max(min(V_servo,saturate),-saturate);
                 case 3
                     %% LQR Controller
-                    K = [12.9099   18.1471    5.3350    0.1222];
+                    K = [12.9099   23.7569    9.0353    2.6114];
                     x1 = p_ball - (p_ball_ref);
                     x2 = obj.v_ball - (v_ball_ref);
                     x3 = theta;
@@ -188,11 +188,17 @@ classdef studentControllerInterface < matlab.System
                     V_servo = 0;
             end
 
+            %% Feedforward Term
+
             %% Update Class Properties
             obj.t_prev = t;
             obj.thetaLast = theta;
             obj.p_ballLast = p_ball;
             obj.inputLast = V_servo;
+            p_ball_meas = obj.xm(1);
+            v_ball_meas = obj.xm(2);
+            theta_meas = obj.xm(3);
+            dtheta_meas = obj.xm(4);
         end
     end
 

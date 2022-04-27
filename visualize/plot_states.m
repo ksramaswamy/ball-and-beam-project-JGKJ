@@ -22,6 +22,7 @@ plot(ts, 100 * ref_ps, '-.', 'LineWidth', 1.5);
 if ~isempty(xms)
     plot(ts, 100 * xms(1,:),'-.k', 'LineWidth', 1.5);
 end
+legend('True Trajectory','Reference','Estimate')
 
 ylabel('$z$ [cm]', 'Interpreter', 'latex');
 grid on;

@@ -23,19 +23,20 @@ f = simplify(dx - g*u);
 
 
 
-A = jacobian(dx,x);
-B = jacobian(dx,u);
+Asym = jacobian(dx,x);
+Bsym = jacobian(dx,u);
+
 
 % Evaluate at origin
 
-A = double(subs(A,[x;u],zeros(5,1)));
-B = double(subs(B,[x;u],zeros(5,1)));
+A = double(subs(Asym,[x;u],zeros(5,1)));
+B = double(subs(Bsym,[x;u],zeros(5,1)));
 
 %% Sontag Control
 %Solve ARE 
-Q = diag([500 0 50 0]);
-
-P = icare(A,B,Q,3);
+Q = diag([50 0 1 0]);
+R = 3;
+P = icare(A,B,Q,R);
 
 V = x.'*P*x; %CLF
 
@@ -45,7 +46,7 @@ Lg = jacobian(V,x)*g;
 
 %Sontag controller
 as = (-(Lf + sqrt(Lf^2 + Lg^4)))/Lg;
-vpa(as,3);
+vpa(as,3)
 
 %% LQR Control
-K = lqr(A,B,Q,3)
+K = lqr(A,B,Q,R)

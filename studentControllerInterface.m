@@ -9,7 +9,7 @@ classdef studentControllerInterface < matlab.System
         v_ball = 0;
         dtheta = 0;
         controllerType = 2;
-        estimatorType = 2;
+        estimatorType = 3;
         inputLast = 0;
 
         % Notes on Kalman Filter: There's an extra state to account for
@@ -23,7 +23,7 @@ classdef studentControllerInterface < matlab.System
         Pm = diag([.05 .02 .08 .04 .02]);
         xm = [-.19 0 0 0 0]';
         n = 5;
-        Evv = diag([0.01 .01 0.01 .01 0.01]).^2;
+        Evv = diag([0.01 0.01 0.01 0.01 0.01]).^2;
         Eww = diag([.002 .002]).^2;
 
     end
@@ -48,7 +48,7 @@ classdef studentControllerInterface < matlab.System
             obj.dt = t - obj.t_prev;
 
             % Extract reference trajectory at the current timestep.
-            [p_ball_ref, v_ball_ref, ~] = get_ref_traj(t);
+            [p_ball_ref, v_ball_ref, a_ball_ref] = get_ref_traj(t);
 
             switch(obj.estimatorType)
                 case 1
@@ -165,16 +165,16 @@ classdef studentControllerInterface < matlab.System
                     x2 = obj.v_ball - (v_ball_ref);
                     x3 = theta;
                     x4 = obj.dtheta;
-
+                    
                     V_servo = ...
-                        -(1.0*((0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(988.0*x1 + 1240.0*x2 + 84.6*x3 + 1.81*x4) - 40.0*x4*(1.29*x1 + 1.81*x2 + 0.534*x3 + 0.0122*x4) + x4*(61.1*x1 + 84.6*x2 + 24.5*x3 + 0.534*x4) + x2*(1410.0*x1 + 988.0*x2 + 61.1*x3 + 1.29*x4) + (((0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(988.0*x1 + 1240.0*x2 + 84.6*x3 + 1.81*x4) - 40.0*x4*(1.29*x1 + 1.81*x2 + 0.534*x3 + 0.0122*x4) + x4*(61.1*x1 + 84.6*x2 + 24.5*x3 + 0.534*x4) + x2*(1410.0*x1 + 988.0*x2 + 61.1*x3 + 1.29*x4))^2 + (77.5*x1 + 109.0*x2 + 32.0*x3 + 0.733*x4)^4)^(1/2)))/(77.5*x1 + 109.0*x2 + 32.0*x3 + 0.733*x4);
+-(1.0*((0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(592.0*x1 + 506.0*x2 + 61.2*x3 + 1.4*x4) - 40.0*x4*(1.29*x1 + 1.4*x2 + 0.319*x3 + 0.00756*x4) + x4*(57.5*x1 + 61.2*x2 + 13.6*x3 + 0.319*x4) + (((0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(592.0*x1 + 506.0*x2 + 61.2*x3 + 1.4*x4) - 40.0*x4*(1.29*x1 + 1.4*x2 + 0.319*x3 + 0.00756*x4) + x4*(57.5*x1 + 61.2*x2 + 13.6*x3 + 0.319*x4) + x2*(1090.0*x1 + 592.0*x2 + 57.5*x3 + 1.29*x4))^2 + (77.5*x1 + 84.3*x2 + 19.2*x3 + 0.454*x4)^4)^(1/2) + x2*(1090.0*x1 + 592.0*x2 + 57.5*x3 + 1.29*x4)))/(77.5*x1 + 84.3*x2 + 19.2*x3 + 0.454*x4);
 
                     % Saturate output to conserve energy
-                    saturate = 1;
+                    saturate = 10;
                     V_servo = max(min(V_servo,saturate),-saturate);
                 case 3
                     %% LQR Controller
-                    K = [12.9099   18.1471    5.3350    0.1222];
+                    K = [12.9099   23.7569    9.0353    2.6114];
                     x1 = p_ball - (p_ball_ref);
                     x2 = obj.v_ball - (v_ball_ref);
                     x3 = theta;
