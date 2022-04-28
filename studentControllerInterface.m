@@ -8,7 +8,7 @@ classdef studentControllerInterface < matlab.System
         dt = .01;
         v_ball = 0;
         dtheta = 0;
-        controllerType = 2;
+        controllerType = 3;
         estimatorType = 3;
         inputLast = 0;
 
@@ -163,26 +163,27 @@ classdef studentControllerInterface < matlab.System
                     %% Sontag Controller
                     x1 = p_ball - (p_ball_ref);
                     x2 = obj.v_ball - (v_ball_ref);
-                    x3 = theta;
+                    x3 = theta - asin((9007199254740992*a_ball_ref)/3767600918416707); %Feedforward term
+%                     x3 = theta;
                     x4 = obj.dtheta;
                     
                     V_servo = ...
--(1.0*((0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(592.0*x1 + 506.0*x2 + 61.2*x3 + 1.4*x4) - 40.0*x4*(1.29*x1 + 1.4*x2 + 0.319*x3 + 0.00756*x4) + x4*(57.5*x1 + 61.2*x2 + 13.6*x3 + 0.319*x4) + (((0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(592.0*x1 + 506.0*x2 + 61.2*x3 + 1.4*x4) - 40.0*x4*(1.29*x1 + 1.4*x2 + 0.319*x3 + 0.00756*x4) + x4*(57.5*x1 + 61.2*x2 + 13.6*x3 + 0.319*x4) + x2*(1090.0*x1 + 592.0*x2 + 57.5*x3 + 1.29*x4))^2 + (77.5*x1 + 84.3*x2 + 19.2*x3 + 0.454*x4)^4)^(1/2) + x2*(1090.0*x1 + 592.0*x2 + 57.5*x3 + 1.29*x4)))/(77.5*x1 + 84.3*x2 + 19.2*x3 + 0.454*x4);
+-(1.0*(x4*(0.351*x1 + 0.82*x2 + 0.4*x3 + 0.00864*x4) - 40.0*x4*(0.00745*x1 + 0.0175*x2 + 0.00864*x3 + 1.98e-4*x4) + x2*(4.71*x1 + 5.54*x2 + 0.351*x3 + 0.00745*x4) + ((x4*(0.351*x1 + 0.82*x2 + 0.4*x3 + 0.00864*x4) - 40.0*x4*(0.00745*x1 + 0.0175*x2 + 0.00864*x3 + 1.98e-4*x4) + x2*(4.71*x1 + 5.54*x2 + 0.351*x3 + 0.00745*x4) + (0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(5.54*x1 + 12.2*x2 + 0.82*x3 + 0.0175*x4))^2 + (0.447*x1 + 1.05*x2 + 0.518*x3 + 0.0119*x4)^4)^(1/2) + (0.418*sin(x3) + x4^2*cos(x3)^2*(0.00255*x1 - 5.42e-4))*(5.54*x1 + 12.2*x2 + 0.82*x3 + 0.0175*x4)))/(0.447*x1 + 1.05*x2 + 0.518*x3 + 0.0119*x4);
 
                     % Saturate output to conserve energy
                     saturate = 10;
                     V_servo = max(min(V_servo,saturate),-saturate);
                 case 3
                     %% LQR Controller
-                    K = [12.9099   23.7569    9.0353    2.6114];
+                    K = [12.9099   14.7426    3.5210    0.0829];
                     x1 = p_ball - (p_ball_ref);
                     x2 = obj.v_ball - (v_ball_ref);
-                    x3 = theta;
+                    x3 = theta - asin((9007199254740992*a_ball_ref)/3767600918416707); %Feedforward term
                     x4 = obj.dtheta;
 
                     V_servo = -K*[x1;x2;x3;x4];
                     % Saturate output to conserve energy
-                    saturate = 1;
+                    saturate = 10;
                     V_servo = max(min(V_servo,saturate),-saturate);
                 otherwise
                     V_servo = 0;

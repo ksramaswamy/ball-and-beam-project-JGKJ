@@ -16,12 +16,16 @@ dx4 = -x4/tau + K/tau*u;
 dx = [dx1;dx2;dx3;dx4];
 x = [x1;x2;x3;x4];
 
-g = diff(dx,u);
-f = simplify(dx - g*u);
+gx = diff(dx,u);
+fx = simplify(dx - gx*u);
+
+%% Feedforward
+
+syms a_ball_ref
+ff = subs(dx2,x4,0);
+solve(dx2 == a_ball_ref,x3);
 
 %% Linearize about origin
-
-
 
 Asym = jacobian(dx,x);
 Bsym = jacobian(dx,u);
@@ -34,15 +38,15 @@ B = double(subs(Bsym,[x;u],zeros(5,1)));
 
 %% Sontag Control
 %Solve ARE 
-Q = diag([50 0 1 0]);
+Q = diag([500 0 10 0]);
 R = 3;
 P = icare(A,B,Q,R);
 
 V = x.'*P*x; %CLF
 
 %Lie derivatives
-Lf = jacobian(V,x)*f;
-Lg = jacobian(V,x)*g;
+Lf = jacobian(V,x)*fx;
+Lg = jacobian(V,x)*gx;
 
 %Sontag controller
 as = (-(Lf + sqrt(Lf^2 + Lg^4)))/Lg;
