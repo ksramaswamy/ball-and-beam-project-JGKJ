@@ -24,9 +24,9 @@ tau = 0.025;
 fric = 12;
 mball = .064;
 mbeam = .65;
-grav_beam = .1*2/r_arm;
-grav_ball = mball/mbeam*grav_beam;
+grav_base = 12*2/r_arm;
+grav_ball = 
 
-dx(4) = (- dtheta + K * u) / tau - (grav_beam/2 + grav_ball/L*(p_ball + L/2)); 
+dx(4) = (- dtheta + K * u) / tau - (grav_base/2 + ; 
 
 end
