@@ -9,7 +9,7 @@ classdef studentControllerInterface < matlab.System
         v_ball = 0;
         dtheta = 0;
         controllerType = 1;
-        estimatorType = 1;
+        estimatorType = 2;
         inputLast = 0;
 
         % Notes on Kalman Filter: There's an extra state to account for
@@ -20,10 +20,10 @@ classdef studentControllerInterface < matlab.System
         % correct for it.
 
         % Kalman Filter Variables
-        Pm = diag([.05 .02 .08 .04 .02]);
-        xm = [-.19 0 0 0 0]';
-        n = 5;
-        Evv = diag([0.01 0.01 0.01 1 1]).^2;
+        Pm = diag([.05 .02 .08 .04 .02 2]).^2;
+        xm = [-.19 0 0 0 0 2]';
+        n = 6;
+        Evv = diag([0.01 0.01 0.01 1 1 1]).^2;
         Eww = diag([.002 .002]).^2;
 
     end
@@ -64,7 +64,7 @@ classdef studentControllerInterface < matlab.System
                     obj.v_ball = (p_ball - obj.p_ballLast)/obj.dt;
                     % Estimate angular velocity of servo
                     obj.dtheta = (theta - obj.thetaLast)/obj.dt;
-                    obj.xm = [p_ball;obj.v_ball;theta;obj.dtheta;0];
+                    obj.xm = [p_ball;obj.v_ball;theta;obj.dtheta;0;0];
                 case 2
                     %% Extended Kalman Filter
                     x1 = obj.xm(1);
@@ -78,7 +78,8 @@ classdef studentControllerInterface < matlab.System
                               0, 0,                                                                                0,                                                1
                               0, 0,                                                                                0,                                           -1/obj.tau];
 
-                    Ad = [Ad zeros(4,1);zeros(1,5)];
+                    Ad = [Ad zeros(4,2);zeros(2,6)];
+                    Ad(4,6) = -1;
                     Ad = expm(Ad*obj.dt);
                   
                     % Compute Prior
@@ -86,13 +87,13 @@ classdef studentControllerInterface < matlab.System
                     Pp = Ad*obj.Pm*Ad' + obj.Evv;
 
                     % Sensor matrix
-                    H = [1 0 0 0 0;0 0 1 0 1];
+                    H = [1 0 0 0 0 0;0 0 1 0 1 0];
                     zbar = H*xp; % Expected measurement
 
                     % Apply Kalman Gain
                     KalmanGain = Pp*H'/(H*Pp*H' + obj.Eww);
                     obj.xm = xp + KalmanGain*([p_ball;theta] - zbar);
-                    obj.Pm = (eye(5) - KalmanGain*H)*Pp;
+                    obj.Pm = (eye(6) - KalmanGain*H)*Pp;
 
                     % Store data in variables for control
                     p_ball = obj.xm(1);
@@ -158,14 +159,15 @@ classdef studentControllerInterface < matlab.System
             b = (5 * obj.L / 14) * (obj.rg / obj.L)^2;
             c = (5 / 7) * (obj.rg / obj.L)^2;
 
-            dx = zeros(5, 1);
+            dx = zeros(6, 1);
 
             % dynamics
             dx(1) = x2;
             dx(2) = a * sin(x3) - b * x4^2 * cos(x3)^2 + c * x1 * x4^2 * cos(x3)^2;
             dx(3) = x4;
-            dx(4) = (- x4 + obj.K * u) / obj.tau;
+            dx(4) = (- x4 + obj.K * u) / obj.tau - x(6);
             dx(5) = 0;
+            dx(6) = 0;
         end
     end
 
