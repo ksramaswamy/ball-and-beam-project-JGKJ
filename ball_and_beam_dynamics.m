@@ -27,6 +27,6 @@ mbeam = .65;
 grav_beam = 10*2/r_arm;
 grav_ball = mball/mbeam*grav_beam;
 
-dx(4) = (- dtheta + K * u) / tau - (grav_beam/2 + grav_ball/L*(p_ball + L/2))*r_arm*cos(theta) - fric*sign(dtheta); 
+dx(4) = (- dtheta + K * u) / tau - (grav_beam/2 + grav_ball/L*(p_ball + L/2))*r_arm*cos(theta) ;%- fric*sign(dtheta); 
 
 end

@@ -3,7 +3,7 @@ clear all
 
 %% General Settings.
 % Initial state.
-x0 = [-.19; 0.00; 0; 0];
+x0 = [0; 0.00; 0; 0];
 t0 = 0;
 % Simulation time.
 T = 90;
@@ -33,7 +33,7 @@ ref_vs = v_ball_ref;
 
 % Measurement Noise
 Eww = diag([.001 .001]).^2;
-MeasurementBias = [0;-1*pi/180];
+MeasurementBias = [0;-50*pi/180];
 MeasurementBias = [0;0];
 
 % Initialize state & time.

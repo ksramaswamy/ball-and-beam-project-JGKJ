@@ -38,8 +38,8 @@ B = double(subs(Bsym,[x;u],zeros(5,1)));
 
 %% Sontag Control
 %Solve ARE 
-Q = diag([500 0 10 0]);
-R = 3;
+Q = diag([500 0 50 0]);
+R = 5;
 P = icare(A,B,Q,R);
 
 V = x.'*P*x; %CLF

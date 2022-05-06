@@ -8,7 +8,7 @@ classdef studentControllerInterface < matlab.System
         dt = .01;
         v_ball = 0;
         dtheta = 0;
-        controllerType = 1;
+        controllerType = 2;
         estimatorType = 2;
         inputLast = 0;
 
@@ -21,10 +21,10 @@ classdef studentControllerInterface < matlab.System
 
         % Kalman Filter Variables
         Pm = diag([.05 .02 .08 .04 .02 2 2]).^2;
-        xm = [-.19 0 0 0 0 2 10]';
+        xm = [0 0 0 0 0 6 5]';
 
-        Evv = diag([0.01 0.01 0.01 1 1 1 1]).^2;
-        Eww = diag([.002 .002]).^2;
+        Evv = diag([0.01 0.01 0.01 1 1 .5 1]).^2;
+        Eww = diag([.001 .001]).^2;
     end
     properties(Constant)
         % System parameters
@@ -57,6 +57,11 @@ classdef studentControllerInterface < matlab.System
 
             % Extract reference trajectory at the current timestep.
             [p_ball_ref, v_ball_ref, a_ball_ref] = get_ref_traj(t);
+
+            % If square wave
+            if (v_ball_ref == 0 && a_ball_ref == 0)
+                [p_ball_ref, v_ball_ref, a_ball_ref] = get_ref_traj(t + 100*obj.dt);
+            end
 
             switch(obj.estimatorType)
                 case 1
@@ -107,6 +112,12 @@ classdef studentControllerInterface < matlab.System
             x3 = theta - asin((7*obj.L*a_ball_ref)/(5*obj.g*obj.rg)); %Feedforward term
 %             x3 = theta;
             x4 = obj.dtheta;
+
+            if (v_ball_ref == 0 && a_ball_ref == 0)
+                theta_des = -1.5*x1;
+                x3 = theta - theta_des;
+            end
+
             switch(obj.controllerType)
                 case 1
                     %% Sontag Controller
@@ -126,6 +137,10 @@ classdef studentControllerInterface < matlab.System
                 otherwise
                     V_servo = 0;
             end
+
+            %% Compensate Gravity
+
+            V_servo = V_servo + obj.xm(6)*obj.tau/obj.K;
 
             %% Update Class Properties
             obj.t_prev = t;

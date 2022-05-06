@@ -8,7 +8,7 @@ classdef studentControllerInterface < matlab.System
         dt = .01;
         v_ball = 0;
         dtheta = 0;
-        controllerType = 1;
+        controllerType = 2;
         estimatorType = 2;
         inputLast = 0;
 
@@ -21,10 +21,10 @@ classdef studentControllerInterface < matlab.System
 
         % Kalman Filter Variables
         Pm = diag([.05 .02 .08 .04 .02 2 2]).^2;
-        xm = [-.19 0 0 0 0 2 10]';
+        xm = [0 0 0 0 0 8 10]';
 
-        Evv = diag([0.01 0.01 0.01 1 1 1 1]).^2;
-        Eww = diag([.002 .002]).^2;
+        Evv = diag([0.01 0.01 0.01 1 1 .5 1]).^2;
+        Eww = diag([.001 .001]).^2;
     end
     properties(Constant)
         % System parameters
@@ -33,7 +33,7 @@ classdef studentControllerInterface < matlab.System
         L  = .4255;
         K = 1.5;
         tau = .025;
-        n = 6;
+        n = 7;
     end
     methods(Access = protected)
         %         function setupImpl(obj)
@@ -57,6 +57,9 @@ classdef studentControllerInterface < matlab.System
 
             % Extract reference trajectory at the current timestep.
             [p_ball_ref, v_ball_ref, a_ball_ref] = get_ref_traj(t);
+            if (v_ball_ref == 0 && a_ball_ref == 0)
+                [p_ball_ref, v_ball_ref, a_ball_ref] = get_ref_traj(t + 10*obj);
+            end
 
             switch(obj.estimatorType)
                 case 1
@@ -64,7 +67,7 @@ classdef studentControllerInterface < matlab.System
                     obj.v_ball = (p_ball - obj.p_ballLast)/obj.dt;
                     % Estimate angular velocity of servo
                     obj.dtheta = (theta - obj.thetaLast)/obj.dt;
-                    obj.xm = [p_ball;obj.v_ball;theta;obj.dtheta;0;0];
+                    obj.xm = [p_ball;obj.v_ball;theta;obj.dtheta;0;0;0];
                 case 2
                     %% Extended Kalman Filter
                     x1 = obj.xm(1);
@@ -80,6 +83,7 @@ classdef studentControllerInterface < matlab.System
 
                     Ad = [Ad zeros(4,obj.n - 4);zeros(obj.n-4,obj.n)];
                     Ad(4,6) = -1;
+                    Ad(4,7) = -sign(x4);
                     Ad = expm(Ad*obj.dt);
                   
                     % Compute Prior
@@ -87,7 +91,7 @@ classdef studentControllerInterface < matlab.System
                     Pp = Ad*obj.Pm*Ad' + obj.Evv;
 
                     % Sensor matrix
-                    H = [1 0 0 0 0 0;0 0 1 0 1 0];
+                    H = [1 0 0 0 0 0 0;0 0 1 0 1 0 0];
                     zbar = H*xp; % Expected measurement
 
                     % Apply Kalman Gain
@@ -106,6 +110,12 @@ classdef studentControllerInterface < matlab.System
             x3 = theta - asin((7*obj.L*a_ball_ref)/(5*obj.g*obj.rg)); %Feedforward term
 %             x3 = theta;
             x4 = obj.dtheta;
+
+            if (v_ball_ref == 0 && a_ball_ref == 0)
+                theta_des = -1.5*x1;
+                x3 = theta - theta_des;
+            end
+
             switch(obj.controllerType)
                 case 1
                     %% Sontag Controller
@@ -125,6 +135,10 @@ classdef studentControllerInterface < matlab.System
                 otherwise
                     V_servo = 0;
             end
+
+            %% Compensate Gravity
+
+%             V_servo = V_servo + obj.xm(6)*obj.tau/obj.K;
 
             %% Update Class Properties
             obj.t_prev = t;
@@ -159,15 +173,16 @@ classdef studentControllerInterface < matlab.System
             b = (5 * obj.L / 14) * (obj.rg / obj.L)^2;
             c = (5 / 7) * (obj.rg / obj.L)^2;
 
-            dx = zeros(6, 1);
+            dx = zeros(obj.n, 1);
 
             % dynamics
             dx(1) = x2;
             dx(2) = a * sin(x3) - b * x4^2 * cos(x3)^2 + c * x1 * x4^2 * cos(x3)^2;
             dx(3) = x4;
-            dx(4) = (- x4 + obj.K * u) / obj.tau - x(6);
+            dx(4) = (- x4 + obj.K * u) / obj.tau - x(6) - x(7)*sign(x4);
             dx(5) = 0;
             dx(6) = 0;
+            dx(7) = 0;
         end
     end
 
