@@ -1,0 +1,78 @@
+# CompilerName=msvc160
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root\build\win64
+matlabdir = C:\Program Files\MATLAB\R2021b
+startdir = C:\Users\koufo\Desktop\UCB\PhD\Sp2022\ME237\ball-and-beam-project-JGKJ
+
+# Toolchain information
+cc = cl
+cxx = cl
+linker = link
+linkerxx = link
+
+cflags =  /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex  
+
+cxxflags =   /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex  
+
+ldflags =  /nologo /manifest   /DLL /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  /out:"solveCFTOC_mex.mexw64" /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmwlapack.lib libmwblas.lib libemlrt.lib libcovrt.lib libut.lib libmwmathutil.lib  /export:mexFunction /export:mexfilerequiredapiversion /export:emlrtMexFcnProperties /export:solveCFTOC /export:solveCFTOC_initialize /export:solveCFTOC_terminate /export:solveCFTOC_atexit /export:div_nde_s32_floor
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in /Fo$out
+
+rule cxx
+    command = $cxx $cxxflags $in /Fo$out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir\solveCFTOC_data.obj : cc $root\solveCFTOC_data.c
+build $builddir\rt_nonfinite.obj : cc $root\rt_nonfinite.c
+build $builddir\solveCFTOC_initialize.obj : cc $root\solveCFTOC_initialize.c
+build $builddir\solveCFTOC_terminate.obj : cc $root\solveCFTOC_terminate.c
+build $builddir\solveCFTOC.obj : cc $root\solveCFTOC.c
+build $builddir\xnrm2.obj : cc $root\xnrm2.c
+build $builddir\_coder_solveCFTOC_api.obj : cc $root\interface\_coder_solveCFTOC_api.c
+build $builddir\_coder_solveCFTOC_mex.obj : cc $root\interface\_coder_solveCFTOC_mex.c
+build $builddir\setProblemType.obj : cc $root\setProblemType.c
+build $builddir\modifyOverheadPhaseOne_.obj : cc $root\modifyOverheadPhaseOne_.c
+build $builddir\factorQRE.obj : cc $root\factorQRE.c
+build $builddir\driver.obj : cc $root\driver.c
+build $builddir\PresolveWorkingSet.obj : cc $root\PresolveWorkingSet.c
+build $builddir\computeQ_.obj : cc $root\computeQ_.c
+build $builddir\countsort.obj : cc $root\countsort.c
+build $builddir\removeEqConstr.obj : cc $root\removeEqConstr.c
+build $builddir\RemoveDependentIneq_.obj : cc $root\RemoveDependentIneq_.c
+build $builddir\feasibleX0ForWorkingSet.obj : cc $root\feasibleX0ForWorkingSet.c
+build $builddir\xgeqrf.obj : cc $root\xgeqrf.c
+build $builddir\maxConstraintViolation.obj : cc $root\maxConstraintViolation.c
+build $builddir\phaseone.obj : cc $root\phaseone.c
+build $builddir\computeFval.obj : cc $root\computeFval.c
+build $builddir\iterate.obj : cc $root\iterate.c
+build $builddir\computeGrad_StoreHx.obj : cc $root\computeGrad_StoreHx.c
+build $builddir\computeFval_ReuseHx.obj : cc $root\computeFval_ReuseHx.c
+build $builddir\squareQ_appendCol.obj : cc $root\squareQ_appendCol.c
+build $builddir\deleteColMoveEnd.obj : cc $root\deleteColMoveEnd.c
+build $builddir\compute_deltax.obj : cc $root\compute_deltax.c
+build $builddir\compute_lambda.obj : cc $root\compute_lambda.c
+build $builddir\addBoundToActiveSetMatrix_.obj : cc $root\addBoundToActiveSetMatrix_.c
+build $builddir\computeFirstOrderOpt.obj : cc $root\computeFirstOrderOpt.c
+build $builddir\factorQR.obj : cc $root\factorQR.c
+build $builddir\ratiotest.obj : cc $root\ratiotest.c
+build $builddir\fullColLDL2_.obj : cc $root\fullColLDL2_.c
+build $builddir\solveCFTOC_mexutil.obj : cc $root\solveCFTOC_mexutil.c
+build $builddir\_coder_solveCFTOC_info.obj : cc $root\interface\_coder_solveCFTOC_info.c
+build $builddir\c_mexapi_version.obj : cc $matlabdir\extern\version\c_mexapi_version.c
+
+# Link
+build $root\solveCFTOC_mex.mexw64 : link $builddir\solveCFTOC_data.obj $builddir\rt_nonfinite.obj $builddir\solveCFTOC_initialize.obj $builddir\solveCFTOC_terminate.obj $builddir\solveCFTOC.obj $builddir\xnrm2.obj $builddir\_coder_solveCFTOC_api.obj $builddir\_coder_solveCFTOC_mex.obj $builddir\setProblemType.obj $builddir\modifyOverheadPhaseOne_.obj $builddir\factorQRE.obj $builddir\driver.obj $builddir\PresolveWorkingSet.obj $builddir\computeQ_.obj $builddir\countsort.obj $builddir\removeEqConstr.obj $builddir\RemoveDependentIneq_.obj $builddir\feasibleX0ForWorkingSet.obj $builddir\xgeqrf.obj $builddir\maxConstraintViolation.obj $builddir\phaseone.obj $builddir\computeFval.obj $builddir\iterate.obj $builddir\computeGrad_StoreHx.obj $builddir\computeFval_ReuseHx.obj $builddir\squareQ_appendCol.obj $builddir\deleteColMoveEnd.obj $builddir\compute_deltax.obj $builddir\compute_lambda.obj $builddir\addBoundToActiveSetMatrix_.obj $builddir\computeFirstOrderOpt.obj $builddir\factorQR.obj $builddir\ratiotest.obj $builddir\fullColLDL2_.obj $builddir\solveCFTOC_mexutil.obj $builddir\_coder_solveCFTOC_info.obj $builddir\c_mexapi_version.obj 

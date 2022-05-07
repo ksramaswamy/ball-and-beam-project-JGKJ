@@ -1,0 +1,224 @@
+[
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   solveCFTOC_data.c /Fobuild\\win64\\solveCFTOC_data.obj",
+    "file": "solveCFTOC_data.c",
+    "output": "build/win64/solveCFTOC_data.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   rt_nonfinite.c /Fobuild\\win64\\rt_nonfinite.obj",
+    "file": "rt_nonfinite.c",
+    "output": "build/win64/rt_nonfinite.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   solveCFTOC_initialize.c /Fobuild\\win64\\solveCFTOC_initialize.obj",
+    "file": "solveCFTOC_initialize.c",
+    "output": "build/win64/solveCFTOC_initialize.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   solveCFTOC_terminate.c /Fobuild\\win64\\solveCFTOC_terminate.obj",
+    "file": "solveCFTOC_terminate.c",
+    "output": "build/win64/solveCFTOC_terminate.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   solveCFTOC.c /Fobuild\\win64\\solveCFTOC.obj",
+    "file": "solveCFTOC.c",
+    "output": "build/win64/solveCFTOC.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   xnrm2.c /Fobuild\\win64\\xnrm2.obj",
+    "file": "xnrm2.c",
+    "output": "build/win64/xnrm2.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   interface\\_coder_solveCFTOC_api.c /Fobuild\\win64\\_coder_solveCFTOC_api.obj",
+    "file": "interface/_coder_solveCFTOC_api.c",
+    "output": "build/win64/_coder_solveCFTOC_api.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   interface\\_coder_solveCFTOC_mex.c /Fobuild\\win64\\_coder_solveCFTOC_mex.obj",
+    "file": "interface/_coder_solveCFTOC_mex.c",
+    "output": "build/win64/_coder_solveCFTOC_mex.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   setProblemType.c /Fobuild\\win64\\setProblemType.obj",
+    "file": "setProblemType.c",
+    "output": "build/win64/setProblemType.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   modifyOverheadPhaseOne_.c /Fobuild\\win64\\modifyOverheadPhaseOne_.obj",
+    "file": "modifyOverheadPhaseOne_.c",
+    "output": "build/win64/modifyOverheadPhaseOne_.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   factorQRE.c /Fobuild\\win64\\factorQRE.obj",
+    "file": "factorQRE.c",
+    "output": "build/win64/factorQRE.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   driver.c /Fobuild\\win64\\driver.obj",
+    "file": "driver.c",
+    "output": "build/win64/driver.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   PresolveWorkingSet.c /Fobuild\\win64\\PresolveWorkingSet.obj",
+    "file": "PresolveWorkingSet.c",
+    "output": "build/win64/PresolveWorkingSet.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   computeQ_.c /Fobuild\\win64\\computeQ_.obj",
+    "file": "computeQ_.c",
+    "output": "build/win64/computeQ_.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   countsort.c /Fobuild\\win64\\countsort.obj",
+    "file": "countsort.c",
+    "output": "build/win64/countsort.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   removeEqConstr.c /Fobuild\\win64\\removeEqConstr.obj",
+    "file": "removeEqConstr.c",
+    "output": "build/win64/removeEqConstr.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   RemoveDependentIneq_.c /Fobuild\\win64\\RemoveDependentIneq_.obj",
+    "file": "RemoveDependentIneq_.c",
+    "output": "build/win64/RemoveDependentIneq_.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   feasibleX0ForWorkingSet.c /Fobuild\\win64\\feasibleX0ForWorkingSet.obj",
+    "file": "feasibleX0ForWorkingSet.c",
+    "output": "build/win64/feasibleX0ForWorkingSet.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   xgeqrf.c /Fobuild\\win64\\xgeqrf.obj",
+    "file": "xgeqrf.c",
+    "output": "build/win64/xgeqrf.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   maxConstraintViolation.c /Fobuild\\win64\\maxConstraintViolation.obj",
+    "file": "maxConstraintViolation.c",
+    "output": "build/win64/maxConstraintViolation.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   phaseone.c /Fobuild\\win64\\phaseone.obj",
+    "file": "phaseone.c",
+    "output": "build/win64/phaseone.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   computeFval.c /Fobuild\\win64\\computeFval.obj",
+    "file": "computeFval.c",
+    "output": "build/win64/computeFval.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   iterate.c /Fobuild\\win64\\iterate.obj",
+    "file": "iterate.c",
+    "output": "build/win64/iterate.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   computeGrad_StoreHx.c /Fobuild\\win64\\computeGrad_StoreHx.obj",
+    "file": "computeGrad_StoreHx.c",
+    "output": "build/win64/computeGrad_StoreHx.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   computeFval_ReuseHx.c /Fobuild\\win64\\computeFval_ReuseHx.obj",
+    "file": "computeFval_ReuseHx.c",
+    "output": "build/win64/computeFval_ReuseHx.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   squareQ_appendCol.c /Fobuild\\win64\\squareQ_appendCol.obj",
+    "file": "squareQ_appendCol.c",
+    "output": "build/win64/squareQ_appendCol.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   deleteColMoveEnd.c /Fobuild\\win64\\deleteColMoveEnd.obj",
+    "file": "deleteColMoveEnd.c",
+    "output": "build/win64/deleteColMoveEnd.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   compute_deltax.c /Fobuild\\win64\\compute_deltax.obj",
+    "file": "compute_deltax.c",
+    "output": "build/win64/compute_deltax.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   compute_lambda.c /Fobuild\\win64\\compute_lambda.obj",
+    "file": "compute_lambda.c",
+    "output": "build/win64/compute_lambda.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   addBoundToActiveSetMatrix_.c /Fobuild\\win64\\addBoundToActiveSetMatrix_.obj",
+    "file": "addBoundToActiveSetMatrix_.c",
+    "output": "build/win64/addBoundToActiveSetMatrix_.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   computeFirstOrderOpt.c /Fobuild\\win64\\computeFirstOrderOpt.obj",
+    "file": "computeFirstOrderOpt.c",
+    "output": "build/win64/computeFirstOrderOpt.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   factorQR.c /Fobuild\\win64\\factorQR.obj",
+    "file": "factorQR.c",
+    "output": "build/win64/factorQR.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   ratiotest.c /Fobuild\\win64\\ratiotest.obj",
+    "file": "ratiotest.c",
+    "output": "build/win64/ratiotest.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   fullColLDL2_.c /Fobuild\\win64\\fullColLDL2_.obj",
+    "file": "fullColLDL2_.c",
+    "output": "build/win64/fullColLDL2_.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   solveCFTOC_mexutil.c /Fobuild\\win64\\solveCFTOC_mexutil.obj",
+    "file": "solveCFTOC_mexutil.c",
+    "output": "build/win64/solveCFTOC_mexutil.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   interface\\_coder_solveCFTOC_info.c /Fobuild\\win64\\_coder_solveCFTOC_info.obj",
+    "file": "interface/_coder_solveCFTOC_info.c",
+    "output": "build/win64/_coder_solveCFTOC_info.obj"
+  },
+  {
+    "directory": "C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\\codegen\\mex\\solveCFTOC",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\koufo\\Desktop\\UCB\\PhD\\Sp2022\\ME237\\ball-and-beam-project-JGKJ\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE -DMW_HAVE_LAPACK_DECLS -DMODEL=solveCFTOC_mex   \"C:\\Program Files\\MATLAB\\R2021b\\extern\\version\\c_mexapi_version.c\" /Fobuild\\win64\\c_mexapi_version.obj",
+    "file": "C:/Program Files/MATLAB/R2021b/extern/version/c_mexapi_version.c",
+    "output": "build/win64/c_mexapi_version.obj"
+  }
+]

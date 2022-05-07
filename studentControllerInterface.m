@@ -5,6 +5,9 @@ classdef studentControllerInterface < matlab.System
         p_ball_prev = nan;
         theta_prev = nan;
         V_servo_prev = 0;
+        count = 0;
+        V_servo_table = zeros(1,4);
+        init = false;
     end
 
     properties(Constant)
@@ -35,12 +38,29 @@ classdef studentControllerInterface < matlab.System
     %% MPC controller
     methods(Access = protected)
         function V_servo = stepImpl(obj, t, p_ball, theta)
+            coder.updateBuildInfo('addIncludePaths','$(START_DIR)\codegen\lib\sloveCFTOC');
+            coder.cinclude('sloveCFTOC_initialize.h');
+            coder.cinclude('sloveCFTOC.h');
+            coder.cinclude('sloveCFTOC_terminate.h');
+            % only use MPC for every 1+4 timestep
+%             if(obj.count<4)
+%                 V_servo = obj.V_servo_table(obj.count+1);
+%                 obj.count = obj.count+1;
+%                 return 
+%             else
+%                 obj.count = 0;
+%             end
+
             % some often-used variable
             n = obj.N;
             M = (4+1)*n;
             n_ = n-1;
-
-            [p_ball_ref, ~, ~] = get_ref_traj(t:obj.dt_mpc:t+obj.T); % obtian reference in the time window
+            
+            p_ball_ref = zeros(1,n+1);
+            for i=1:n+1
+                [p_ball_ref(i), ~, ~] = get_ref_traj(t+(i-1)*obj.dt_mpc);
+            end
+             % obtian reference in the time window
             
             % x1: p_ball
             % x2: p_ball_dot
@@ -102,15 +122,24 @@ classdef studentControllerInterface < matlab.System
 %             end
 %             xx0 = AA*[x0;0];
 
-            coder.extrinsic('quadprog');
-            options = optimoptions('quadprog','algorithm','active-set','Display','off');
-            x = quadprog(obj.H,f,[],[],Aeq,beq,obj.lb,obj.ub,xx0,options);
-            V_servo = zeros(1,1);
-            if(isnan(x))
-                V_servo = obj.V_servo_prev;
-            else
-                V_servo = x(5);
-            end
+            %options = optimoptions('quadprog','algorithm','active-set','Display','off','OptimalityTolerance',1e-5,'StepTolerance',1e-5,'ConstraintTolerance',1e-5);
+            %x = quadprog(obj.H,f,[],[],Aeq,beq,obj.lb,obj.ub,xx0,options);
+            %x = solveCFTOC_mex(obj.H,f,Aeq,beq,obj.lb,obj.ub,xx0);
+            V_servo = 0.0;
+
+            coder.ceval('sloveCFTOC_initialize');
+            V_servo = coder.ceval('solveCFTOC_mex',obj.H,f,Aeq,beq,obj.lb,obj.ub,xx0);
+            coder.ceval('sloveCFTOC_terminate');
+%             if(isnan(V_servo))
+%                 V_servo = obj.V_servo_prev;
+%             else
+%                 V_servo = x(5);
+%                 % save for the next 2 steps
+% %                 obj.V_servo_table(1) = x(10);
+% %                 obj.V_servo_table(2) = x(15);
+% %                 obj.V_servo_table(3) = x(20);
+% %                 obj.V_servo_table(4) = x(25);
+%             end
 
             % update old states
             obj.t_prev =t;
